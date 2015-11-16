@@ -1,5 +1,4 @@
 FROM ubuntu:14.04
-MAINTAINER Fabio Rehm "fgrehm@gmail.com"
 
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
     apt-get update && apt-get install -y software-properties-common && \
@@ -15,8 +14,8 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
 # the netbeans image
 RUN apt-get update && apt-get install -y libgtk2.0-0 libcanberra-gtk-module
 
-RUN wget http://download.jetbrains.com/idea/ideaIC-14.0.2.tar.gz -O /tmp/intellij.tar.gz -q && \
-    echo 'Installing IntelliJ IDEA' && \
+RUN echo 'Installing IntelliJ IDEA' && \
+    wget https://download.jetbrains.com/idea/ideaIC-15.0.1.tar.gz -O /tmp/intellij.tar.gz && \
     mkdir -p /opt/intellij && \
     tar -xf /tmp/intellij.tar.gz --strip-components=1 -C /opt/intellij && \
     rm /tmp/intellij.tar.gz

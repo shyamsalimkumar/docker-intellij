@@ -1,2 +1,4 @@
 echo 'This will take a lot of time...'
-docker build -t fgrehm/intellij-idea:v14.0.2 .
+docker build -t shyamsalimkumar/intellij-idea:v15.0.1 Dockerfile.intellij
+docker build -t shyamsalimkumar/intellij-idea:v15.0.1-w-golang Dockerfile.intellij-w-golang
+docker build -t shyamsalimkumar/intellij-idea:v15.0.1-w-java6n7-scala Dockerfile.intellij-w-java6n7-scala

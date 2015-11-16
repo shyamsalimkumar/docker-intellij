@@ -4,4 +4,4 @@ docker run -ti --rm \
            -e DISPLAY=$DISPLAY \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v `pwd`:/workspace \
-           fgrehm/intellij-idea:v15.0.1
+           fgrehm/intellij-idea:v15.0.1-w-golang
