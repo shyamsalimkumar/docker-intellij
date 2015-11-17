@@ -18,13 +18,15 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
     rm -rf /tmp/*
 
 # Install Scala and SBT
+RUN echo 'Downloading Scala' && \
+    wget http://www.scala-lang.org/files/archive/scala-2.10.6.deb -O /tmp/scala-2.10.deb
 RUN echo 'Installing Scala' && \
-    wget http://www.scala-lang.org/files/archive/scala-2.10.6.deb -O /tmp/scala-2.10.deb && \
     dpkg -i /tmp/scala-2.10.deb && \
     apt-get update && \
-    apt-get install && \
-    echo 'Installing SBT' && \
-    wget https://bintray.com/artifact/download/sbt/debian/sbt-0.13.9.deb -O /tmp/sbt.deb && \
+    apt-get install
+RUN echo 'Downloading SBT' && \
+    wget https://bintray.com/artifact/download/sbt/debian/sbt-0.13.9.deb -O /tmp/sbt.deb
+RUN echo 'Installing SBT' && \
     dpkg -i /tmp/sbt.deb && \
     apt-get update && \
     apt-get install sbt && \

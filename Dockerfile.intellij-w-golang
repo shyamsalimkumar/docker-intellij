@@ -1,7 +1,9 @@
 FROM shyamsalimkumar/intellij-idea:v15.0.1
 
 # Install Golang
+RUN echo 'Downloading golang' && \
+    wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz -O /tmp/golang.tar.gz
 RUN echo 'Installing Golang' && \
-    wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz -O /tmp/golang.tar.gz && \
+    mkdir -p /usr/local/go && \
     tar -xf /tmp/golang.tar.gz -C /usr/local/go && \
     rm -rf /tmp/*
